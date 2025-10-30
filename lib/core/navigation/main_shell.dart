@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:myapp/core/services/theme_provider.dart';
 import 'package:myapp/core/themes/theme_extension.dart';
@@ -80,55 +81,62 @@ class _MainShellState extends State<MainShell> {
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).extension<AppColors>()!;
     final themeProvider = Provider.of<ThemeProvider>(context);
+    final brightness = Theme.of(context).brightness;
 
-    return Scaffold(
-      backgroundColor: appColors.background,
-      appBar: AppBar(
-        backgroundColor: appColors.topAppBar,
-        title: Text(
-          _navItems[_selectedIndex].appBarTitle,
-          style: TextStyle(color: appColors.text, fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: Icon(
-              themeProvider.themeMode == ThemeMode.dark ? Icons.light_mode : Icons.dark_mode,
-              color: appColors.text,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        systemNavigationBarColor: appColors.background,
+        systemNavigationBarIconBrightness: brightness == Brightness.dark ? Brightness.light : Brightness.dark,
+      ),
+      child: Scaffold(
+        backgroundColor: appColors.background,
+        appBar: AppBar(
+          backgroundColor: appColors.topAppBar,
+          title: Text(
+            _navItems[_selectedIndex].appBarTitle,
+            style: TextStyle(color: appColors.text, fontWeight: FontWeight.bold),
+          ),
+          centerTitle: true,
+          actions: [
+            IconButton(
+              icon: Icon(
+                themeProvider.themeMode == ThemeMode.dark ? Icons.light_mode : Icons.dark_mode,
+                color: appColors.text,
+              ),
+              onPressed: () => themeProvider.toggleTheme(),
+              tooltip: 'Toggle Theme',
             ),
-            onPressed: () => themeProvider.toggleTheme(),
-            tooltip: 'Toggle Theme',
+          ],
+        ),
+        body: IndexedStack(
+          index: _selectedIndex,
+          children: _navItems.map((item) => item.screen).toList(),
+        ),
+        bottomNavigationBar: Container(
+          color: appColors.background,
+          padding: const EdgeInsets.symmetric(horizontal: 35),
+          child: NavigationBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            onDestinationSelected: _onItemTapped,
+            selectedIndex: _selectedIndex,
+            indicatorColor: appColors.iconContainer,
+            labelTextStyle: WidgetStateProperty.resolveWith<TextStyle?>(
+              (Set<WidgetState> states) {
+                final color = states.contains(WidgetState.selected)
+                    ? appColors.activeLabel
+                    : appColors.inactiveTabs;
+                return TextStyle(color: color, fontWeight: FontWeight.w500);
+              },
+            ),
+            destinations: _navItems.map((item) {
+              return NavigationDestination(
+                icon: _buildIcon(context, item.initialIcon, false),
+                selectedIcon: _buildIcon(context, item.selectedIcon, true),
+                label: item.label,
+              );
+            }).toList(),
           ),
-        ],
-      ),
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: _navItems.map((item) => item.screen).toList(),
-      ),
-      bottomNavigationBar: Container(
-        color: appColors.navBarBackground,
-        padding: const EdgeInsets.symmetric(horizontal: 40),
-        child: NavigationBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          onDestinationSelected: _onItemTapped,
-          selectedIndex: _selectedIndex,
-          indicatorColor: appColors.iconContainer,
-          labelTextStyle: WidgetStateProperty.resolveWith<TextStyle?>(
-            (Set<WidgetState> states) {
-              final color = states.contains(WidgetState.selected)
-                  ? appColors.activeLabel
-                  : appColors.inactiveTabs;
-              return TextStyle(color: color, fontWeight: FontWeight.w500);
-            },
-          ),
-          destinations: _navItems.map((item) {
-            return NavigationDestination(
-              icon: _buildIcon(context, item.initialIcon, false),
-              selectedIcon: _buildIcon(context, item.selectedIcon, true),
-              label: item.label,
-            );
-          }).toList(),
         ),
       ),
     );
