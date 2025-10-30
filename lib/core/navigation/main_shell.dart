@@ -114,7 +114,7 @@ class _MainShellState extends State<MainShell> {
         ),
         bottomNavigationBar: Container(
           color: appColors.background,
-          padding: const EdgeInsets.symmetric(horizontal: 35),
+          padding: const EdgeInsets.symmetric(horizontal: 30),
           child: NavigationBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
