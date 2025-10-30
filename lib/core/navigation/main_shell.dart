@@ -105,26 +105,31 @@ class _MainShellState extends State<MainShell> {
         index: _selectedIndex,
         children: _navItems.map((item) => item.screen).toList(),
       ),
-      bottomNavigationBar: NavigationBar(
-        backgroundColor: appColors.navBarBackground,
-        onDestinationSelected: _onItemTapped,
-        selectedIndex: _selectedIndex,
-        indicatorColor: appColors.iconContainer,
-        labelTextStyle: WidgetStateProperty.resolveWith<TextStyle?>(
-          (Set<WidgetState> states) {
-            final color = states.contains(WidgetState.selected)
-                ? appColors.activeLabel
-                : appColors.inactiveTabs;
-            return TextStyle(color: color, fontWeight: FontWeight.w500);
-          },
+      bottomNavigationBar: Container(
+        color: appColors.navBarBackground,
+        padding: const EdgeInsets.symmetric(horizontal: 40),
+        child: NavigationBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          onDestinationSelected: _onItemTapped,
+          selectedIndex: _selectedIndex,
+          indicatorColor: appColors.iconContainer,
+          labelTextStyle: WidgetStateProperty.resolveWith<TextStyle?>(
+            (Set<WidgetState> states) {
+              final color = states.contains(WidgetState.selected)
+                  ? appColors.activeLabel
+                  : appColors.inactiveTabs;
+              return TextStyle(color: color, fontWeight: FontWeight.w500);
+            },
+          ),
+          destinations: _navItems.map((item) {
+            return NavigationDestination(
+              icon: _buildIcon(context, item.initialIcon, false),
+              selectedIcon: _buildIcon(context, item.selectedIcon, true),
+              label: item.label,
+            );
+          }).toList(),
         ),
-        destinations: _navItems.map((item) {
-          return NavigationDestination(
-            icon: _buildIcon(context, item.initialIcon, false),
-            selectedIcon: _buildIcon(context, item.selectedIcon, true),
-            label: item.label,
-          );
-        }).toList(),
       ),
     );
   }

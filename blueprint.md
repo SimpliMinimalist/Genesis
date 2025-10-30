@@ -6,7 +6,7 @@ This is a Flutter application that serves as a template for future projects. It 
 
 ## Features
 
-* **Navigation:** The application uses a bottom navigation bar to switch between the main screens.
+* **Navigation:** The application uses a bottom navigation bar to switch between the main screens. The navigation tabs are brought closer together with horizontal padding.
 * **Theming:** The application supports both light and dark themes, with the ability to toggle between them.
 
 ## Project Structure
