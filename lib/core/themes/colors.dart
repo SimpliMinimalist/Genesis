@@ -22,7 +22,7 @@ const inactiveTabsLight = Color(0xFF8E8E93);
 
 // --------------Dark Theme Colors------------//
 const primaryDark = Color(0xFF0D99FF);
-const backgroundDark = Color(0xFF000000);
+const backgroundDark = Color(0xFF0F0F0F);
 const surfaceDark = Color(0xFF1F1F1F);
 const textDark = Color(0xFFFFFFFF);
 const textDarkGrey = Color(0xFF8E8E93);
