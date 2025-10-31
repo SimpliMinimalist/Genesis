@@ -11,9 +11,8 @@ class StoreScreen extends StatelessWidget {
         padding: EdgeInsets.all(16.0),
         child: Column(
           children: [
-            AppSearchBar(),
+            AppSearchBar(hintText: 'Search Products'),
             SizedBox(height: 16.0),
-            Text('Store Screen'),
           ],
         ),
       ),

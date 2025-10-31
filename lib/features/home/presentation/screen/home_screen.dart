@@ -11,9 +11,8 @@ class HomeScreen extends StatelessWidget {
         padding: EdgeInsets.all(16.0),
         child: Column(
           children: [
-            AppSearchBar(),
+            AppSearchBar(hintText: 'Search Orders'),
             SizedBox(height: 16.0),
-            Text('Home Screen'),
           ],
         ),
       ),
