@@ -12,7 +12,7 @@ class AppSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).extension<AppColors>()!;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
       child: SearchBar(
         constraints: const BoxConstraints(minHeight: 52.0, maxHeight: 52.0),
         hintText: hintText,
@@ -24,8 +24,8 @@ class AppSearchBar extends StatelessWidget {
           child: SvgPicture.asset(
             'assets/icons/search.svg',
             colorFilter: ColorFilter.mode(appColors.icon, BlendMode.srcIn),
-            width: 24,
-            height: 24,
+            width: 20,
+            height: 20,
           ),
         ),
         backgroundColor: WidgetStateProperty.all(appColors.searchBarBackground),

@@ -94,7 +94,7 @@ class _MainShellState extends State<MainShell> {
           backgroundColor: appColors.topAppBar,
           title: Text(
             _navItems[_selectedIndex].appBarTitle,
-            style: TextStyle(color: appColors.text, fontWeight: FontWeight.bold),
+            style: TextStyle(color: appColors.text, fontWeight: FontWeight.bold, fontSize: 18),
           ),
           centerTitle: true,
           actions: [
