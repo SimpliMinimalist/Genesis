@@ -15,6 +15,9 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.activeIcon,
     required this.activeLabel,
     required this.inactiveTabs,
+    required this.searchBarBackground,
+    required this.searchBarPlaceholder,
+    required this.icon,
   });
 
   final Color primary;
@@ -28,6 +31,9 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color activeIcon;
   final Color activeLabel;
   final Color inactiveTabs;
+  final Color searchBarBackground;
+  final Color searchBarPlaceholder;
+  final Color icon;
 
   @override
   AppColors copyWith({
@@ -42,6 +48,9 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? activeIcon,
     Color? activeLabel,
     Color? inactiveTabs,
+    Color? searchBarBackground,
+    Color? searchBarPlaceholder,
+    Color? icon,
   }) {
     return AppColors(
       primary: primary ?? this.primary,
@@ -55,6 +64,9 @@ class AppColors extends ThemeExtension<AppColors> {
       activeIcon: activeIcon ?? this.activeIcon,
       activeLabel: activeLabel ?? this.activeLabel,
       inactiveTabs: inactiveTabs ?? this.inactiveTabs,
+      searchBarBackground: searchBarBackground ?? this.searchBarBackground,
+      searchBarPlaceholder: searchBarPlaceholder ?? this.searchBarPlaceholder,
+      icon: icon ?? this.icon,
     );
   }
 
@@ -75,7 +87,9 @@ class AppColors extends ThemeExtension<AppColors> {
       activeIcon: Color.lerp(activeIcon, other.activeIcon, t)!,
       activeLabel: Color.lerp(activeLabel, other.activeLabel, t)!,
       inactiveTabs: Color.lerp(inactiveTabs, other.inactiveTabs, t)!,
+      searchBarBackground: Color.lerp(searchBarBackground, other.searchBarBackground, t)!,
+      searchBarPlaceholder: Color.lerp(searchBarPlaceholder, other.searchBarPlaceholder, t)!,
+      icon: Color.lerp(icon, other.icon, t)!,
     );
   }
 }
-

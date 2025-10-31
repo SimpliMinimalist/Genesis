@@ -22,6 +22,9 @@ ThemeData lightTheme() {
         activeIcon: activeIconLight,
         activeLabel: activeLabelLight,
         inactiveTabs: inactiveTabsLight,
+        searchBarBackground: searchBarBackgroundLight,
+        searchBarPlaceholder: searchBarPlaceholderLight,
+        icon: iconLight,
       ),
     ],
   );

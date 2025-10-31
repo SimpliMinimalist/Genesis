@@ -22,6 +22,9 @@ ThemeData darkTheme() {
         activeIcon: activeIconDark,
         activeLabel: activeLabelDark,
         inactiveTabs: inactiveTabsDark,
+        searchBarBackground: searchBarBackgroundDark,
+        searchBarPlaceholder: searchBarPlaceholderDark,
+        icon: iconDark,
       ),
     ],
   );
