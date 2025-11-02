@@ -42,7 +42,7 @@ class _AppSearchBarState extends State<AppSearchBar> {
   Widget build(BuildContext context) {
     final appColors = Theme.of(context).extension<AppColors>()!;
     return Padding(
-      padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
+      padding: const EdgeInsets.only(left: 17.0, right: 17.0, top: 16.0),
       child: SearchBar(
         controller: _controller,
         onChanged: _onChanged,
