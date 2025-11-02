@@ -24,7 +24,7 @@ const navBarBackgroundLight = Color(0xFFF2F2F7);
 const iconContainerLight = Color(0xFFFFFFFF);
 const activeIconLight = Color(0xFF06BDFE);
 const activeLabelLight = Color(0xFF06BDFE);
-const inactiveTabsLight = Color(0xFF8E8E93);
+const inactiveTabsLight = Color(0xFF456173);
 
 //---------------------------------------------//
 
