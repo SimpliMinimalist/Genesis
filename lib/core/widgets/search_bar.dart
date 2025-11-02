@@ -1,12 +1,42 @@
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:myapp/core/themes/theme_extension.dart';
 
-class AppSearchBar extends StatelessWidget {
-  const AppSearchBar({super.key, required this.hintText});
+class AppSearchBar extends StatefulWidget {
+  const AppSearchBar({
+    super.key,
+    required this.hintText,
+    required this.onDebounced,
+    this.debounceDuration = const Duration(milliseconds: 500),
+  });
 
   final String hintText;
+  final void Function(String) onDebounced;
+  final Duration debounceDuration;
+
+  @override
+  State<AppSearchBar> createState() => _AppSearchBarState();
+}
+
+class _AppSearchBarState extends State<AppSearchBar> {
+  Timer? _debounce;
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _debounce?.cancel();
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _onChanged(String query) {
+    if (_debounce?.isActive ?? false) _debounce!.cancel();
+    _debounce = Timer(widget.debounceDuration, () {
+      widget.onDebounced(query);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +44,10 @@ class AppSearchBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
       child: SearchBar(
+        controller: _controller,
+        onChanged: _onChanged,
         constraints: const BoxConstraints(minHeight: 52.0, maxHeight: 52.0),
-        hintText: hintText,
+        hintText: widget.hintText,
         hintStyle: WidgetStateProperty.all(
           TextStyle(color: appColors.searchBarPlaceholder),
         ),

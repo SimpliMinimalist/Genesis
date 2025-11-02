@@ -1,23 +1,32 @@
+
 # Project Blueprint
 
 ## Overview
 
-This is a Flutter application that serves as a template for future projects. It includes a basic structure with a home screen, a store screen, and a profile screen. The application is built with a focus on a clean, scalable, and maintainable architecture.
+A multi-feature Flutter application that showcases modern UI, generative AI capabilities, and best practices in app development. The app will include features like text generation from prompts, intuitive navigation, and a clean, responsive design.
 
-## Features
+## Style, Design, and Features
 
-* **Navigation:** The application uses a styled bottom navigation bar to switch between the main screens.
-* **Theming:** The application supports both light and dark themes, with the ability to toggle between them. The system navigation bar's background now matches the app's background.
+### Implemented
 
-## Project Structure
+*   **Core Structure:** A multi-screen application with a tab-based navigation structure.
+*   **UI Components:**
+    *   `AppSearchBar`: A custom, reusable search bar with a debounce mechanism to optimize performance.
+*   **Screens:**
+    *   `HomeScreen`: The main landing screen.
+    *   `StoreScreen`: A screen to display products.
 
-The project is organized into the following directories:
+### Current Plan: Generative AI Text Generation
 
-* `lib/core`: Contains the core components of the application, such as navigation, services, and themes.
-* `lib/features`: Contains the different features of the application, such as home, profile, and store.
-* `lib/app.dart`: The main application widget.
-* `lib/main.dart`: The entry point of the application.
+This plan outlines the steps to add a new feature that allows users to generate text using a generative AI model from Firebase.
 
-## Status
-
-Base setup is complete.
+1.  **Add Dependencies:** Add the `firebase_core` and `firebase_ai` packages to the `pubspec.yaml` file.
+2.  **Initialize Firebase:** Update `lib/main.dart` to initialize Firebase.
+3.  **Create Text Generation Screen:**
+    *   Create a new file at `lib/features/text_generation/presentation/screen/text_generation_screen.dart`.
+    *   Build a UI with a `TextField` for user prompts, a button to trigger generation, and a `SelectableText` widget to display the output.
+4.  **Implement Text Generation Logic:**
+    *   Use the `firebase_ai` package to connect to the Gemini model.
+    *   Create a function to send the user's prompt to the model and receive the generated text.
+    *   Display the result in the UI, along with loading and error states.
+5.  **Add Navigation:** Add a `FloatingActionButton` to the `HomeScreen` to provide an entry point to the new text generation feature.

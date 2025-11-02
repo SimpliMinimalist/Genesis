@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 // Light Theme Colors
@@ -22,6 +21,10 @@ const iconContainerLight = Color(0xFFFFFFFF);
 const activeIconLight = Color(0xFF06BDFE);
 const activeLabelLight = Color(0xFF06BDFE);
 const inactiveTabsLight = Color(0xFF8E8E93);
+
+// FAB
+const fabBackgroundLight = Color(0xFFFFFFFF);
+const fabIconLight = Color(0xFF000000);
 
 
 //---------------------------------------------//
@@ -49,3 +52,6 @@ const activeIconDark = Color(0xFF0D99FF);
 const activeLabelDark = Color(0xFF0D99FF);
 const inactiveTabsDark = Color(0xFF848488);
 
+// FAB
+const fabBackgroundDark = Color(0xFF1C1C1E);
+const fabIconDark = Color(0xFFE7E7E7);

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 @immutable
@@ -18,6 +17,8 @@ class AppColors extends ThemeExtension<AppColors> {
     required this.searchBarBackground,
     required this.searchBarPlaceholder,
     required this.icon,
+    required this.fabBackground,
+    required this.fabIcon,
   });
 
   final Color primary;
@@ -34,6 +35,8 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color searchBarBackground;
   final Color searchBarPlaceholder;
   final Color icon;
+  final Color fabBackground;
+  final Color fabIcon;
 
   @override
   AppColors copyWith({
@@ -51,6 +54,8 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? searchBarBackground,
     Color? searchBarPlaceholder,
     Color? icon,
+    Color? fabBackground,
+    Color? fabIcon,
   }) {
     return AppColors(
       primary: primary ?? this.primary,
@@ -67,6 +72,8 @@ class AppColors extends ThemeExtension<AppColors> {
       searchBarBackground: searchBarBackground ?? this.searchBarBackground,
       searchBarPlaceholder: searchBarPlaceholder ?? this.searchBarPlaceholder,
       icon: icon ?? this.icon,
+      fabBackground: fabBackground ?? this.fabBackground,
+      fabIcon: fabIcon ?? this.fabIcon,
     );
   }
 
@@ -90,6 +97,8 @@ class AppColors extends ThemeExtension<AppColors> {
       searchBarBackground: Color.lerp(searchBarBackground, other.searchBarBackground, t)!,
       searchBarPlaceholder: Color.lerp(searchBarPlaceholder, other.searchBarPlaceholder, t)!,
       icon: Color.lerp(icon, other.icon, t)!,
+      fabBackground: Color.lerp(fabBackground, other.fabBackground, t)!,
+      fabIcon: Color.lerp(fabIcon, other.fabIcon, t)!,
     );
   }
 }

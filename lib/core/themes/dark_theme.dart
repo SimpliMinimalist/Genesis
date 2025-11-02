@@ -25,6 +25,8 @@ ThemeData darkTheme() {
         searchBarBackground: searchBarBackgroundDark,
         searchBarPlaceholder: searchBarPlaceholderDark,
         icon: iconDark,
+        fabBackground: fabBackgroundDark,
+        fabIcon: fabIconDark,
       ),
     ],
   );

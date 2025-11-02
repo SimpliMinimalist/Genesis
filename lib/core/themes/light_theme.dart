@@ -25,6 +25,8 @@ ThemeData lightTheme() {
         searchBarBackground: searchBarBackgroundLight,
         searchBarPlaceholder: searchBarPlaceholderLight,
         icon: iconLight,
+        fabBackground: fabBackgroundLight,
+        fabIcon: fabIconLight,
       ),
     ],
   );

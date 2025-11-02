@@ -6,13 +6,16 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            AppSearchBar(hintText: 'Search Orders'),
-            SizedBox(height: 16.0),
+            AppSearchBar(
+              hintText: 'Search Orders',
+              onDebounced: (query) {},
+            ),
+            const SizedBox(height: 16.0),
           ],
         ),
       ),
