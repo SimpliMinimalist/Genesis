@@ -19,7 +19,7 @@ class PillFab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 44.0,
+      height: 47.0,
       child: FloatingActionButton.extended(
         onPressed: onPressed,
         label: Padding(

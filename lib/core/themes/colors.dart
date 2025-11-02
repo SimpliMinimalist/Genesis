@@ -44,7 +44,7 @@ const searchBarPlaceholderDark = Color(0xFF9F9F9F);
 const iconDark = Color(0xFF999999);
 
 // FAB
-const fabBackgroundDark = Color(0xFF1C1C1E);
+const fabBackgroundDark = Color(0xFF2A2A2A);
 const fabIconDark = Color(0xFFE7E7E7);
 
 //NavBar
